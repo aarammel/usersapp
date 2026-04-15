@@ -1,0 +1,39 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  UserID   Int     @id @default(autoincrement())
+  UserName String  @unique
+  Name     String
+  Surname  String
+  Email    String  @unique
+  Address  String
+  Active     Boolean @default(true)
+  Deleted    Boolean @default(false)
+  Password   String  @default("")
+  UserAccess Int     @default(2)
+  department Int     @default(0)
+
+  performance UserPerformance[]
+}
+
+model UserPerformance {
+  id         String   @id @default(cuid())
+  userId     Int
+  department Int
+  date       DateTime
+  production Int
+
+  user       User     @relation(fields: [userId], references: [UserID])
+}

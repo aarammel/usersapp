@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx --yes create-next-app@latest . --typescript --app --tailwind --eslint --src-dir --import-alias \"@/*\" --use-npm --no-turbopack --yes)",
+      "Bash(npm install:*)",
+      "Bash(npx prisma:*)",
+      "Bash(node scripts/generate-sample.mjs)",
+      "Bash(npx tsc:*)",
+      "Bash(node --experimental-strip-types scripts/seed-performance.mjs)",
+      "Bash(node scripts/seed-performance-all.mjs)"
+    ]
+  }
+}
