@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# User Management System
+
+A full-stack web application for managing users and tracking performance, built with Next.js, TypeScript, Prisma and Claude AI assistance.
+
+<!-- Add screenshots here -->
+
+## Features
+
+- User management with full CRUD operations
+- Role-based access control with 3 access levels (Low, Normal, High)
+- Secure login with encrypted passwords
+- Bulk Excel upload with validation and error logging
+- Soft delete with restore functionality
+- Performance tracking per user and department
+- Interactive performance charts with toggleable user lines
+- Search and filter on every column
+- Pagination (20 records per page)
+- Export data to Excel
+- Responsive design with Tailwind CSS
+
+## Tech Stack
+
+- **Next.js 16** (App Router)
+- **TypeScript**
+- **Prisma ORM**
+- **SQLite** database
+- **Tailwind CSS**
+- **bcrypt** for password encryption
+- **Recharts** for data visualisation
+- **xlsx** for Excel import/export
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm
+
+### Installation
+
+```bash
+git clone https://github.com/aarammel/usersapp
+cd usersapp
+npm install
+```
+
+### Environment Setup
+
+Copy the example environment file and update as needed:
+
+```bash
+cp .env.example .env
+```
+
+### Database Setup
+
+```bash
+npx prisma migrate dev
+```
+
+### Run the Application
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000/login](http://localhost:3000/login) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Default Login
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a user first via the database or run the seed script.
 
-## Learn More
+## Access Levels
 
-To learn more about Next.js, take a look at the following resources:
+| Level | Name   | Permissions                                      |
+|-------|--------|--------------------------------------------------|
+| 1     | Low    | View only                                        |
+| 2     | Normal | View and edit                                    |
+| 3     | High   | Full access including department performance charts |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Author
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Aram Aghajanyan**
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+GitHub: [github.com/aarammel](https://github.com/aarammel)
